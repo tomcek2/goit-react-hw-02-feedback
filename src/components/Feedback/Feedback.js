@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import css from './Feedback.module.css';
 
 export class Feedback extends Component {
   state = {
@@ -30,30 +31,31 @@ export class Feedback extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
+    const handleClick = this.handleClick;
     const totalFeedback = this.countTotalFeedback();
     const positiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
 
     return (
       <>
         <h1>Please leave feedback</h1>
-        <button onClick={this.handleClick} name="good">
+        <button className={css.button} onClick={handleClick} name="good">
           Good
         </button>
-        <button onClick={this.handleClick} name="neutral">
+        <button className={css.button} onClick={handleClick} name="neutral">
           Neutral
         </button>
-        <button onClick={this.handleClick} name="bad">
+        <button className={css.button} onClick={handleClick} name="bad">
           Bad
         </button>
         <h2>Statistics</h2>
-        <ul>
+        <ul className={css.statisticsList}>
           <li>Good: {good}</li>
           <li>Neutral: {neutral}</li>
           <li>Bad: {bad}</li>
           <li>Total: {totalFeedback}</li>
           <li>
             Positive Feedback Percentage:{' '}
-            {positiveFeedbackPercentage.toFixed(2)}%
+            {positiveFeedbackPercentage.toFixed(0)}%
           </li>
         </ul>
       </>
