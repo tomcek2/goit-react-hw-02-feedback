@@ -34,21 +34,27 @@ export class Feedback extends Component {
 
     return (
       <>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
-            onLeaveFeedback={this.handleFeedback}
-          />
-        </Section>
-        <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            total={totalFeedback}
-            positivePercentage={positiveFeedbackPercentage}
-          />
-        </Section>
+        <Section
+          title="Please leave feedback"
+          children={
+            <FeedbackOptions
+              options={['good', 'neutral', 'bad']}
+              onLeaveFeedback={this.handleFeedback}
+            />
+          }
+        ></Section>
+        <Section
+          title="Statistics"
+          children={
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={totalFeedback}
+              positivePercentage={positiveFeedbackPercentage}
+            />
+          }
+        ></Section>
       </>
     );
   }
